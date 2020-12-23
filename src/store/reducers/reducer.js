@@ -2,11 +2,13 @@ import {
   ADD_TO_BUYER,
   ADD_TO_CART,
   REMOVE_FROM_CART,
+  ADD_NEW_ORDER,
 } from '../constants/actionTypes';
 
 const initialState = {
   cart: [],
   buyer: [],
+  orders: [],
   products: [
     {
       id: '1',
@@ -71,6 +73,11 @@ export default (state = initialState, {type, payload}) => {
       return {
         ...state,
         buyer: [...state.buyer, payload],
+      };
+    case ADD_NEW_ORDER:
+      return {
+        ...state,
+        orders: [...state.orders, payload],
       };
     default:
       return state;

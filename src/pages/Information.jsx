@@ -5,15 +5,16 @@ import {useForm} from 'react-hook-form';
 import {useDispatch, useSelector} from 'react-redux';
 import {addToBuyer} from '../store/actions/action';
 
-const Information = () => {
+const Information = ({history}) => {
   const {register, handleSubmit} = useForm();
 
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
   const onSubmit = data => {
-    // console.log(data);
+    console.log(data);
     dispatch(addToBuyer(data));
+    history.push('/checkout/payment');
   };
 
   return (
